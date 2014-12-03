@@ -24,12 +24,12 @@ class nfs::idmap (
   $pipefs_directory          = 'USE_DEFAULTS',
 ) {
 
-  $is_idmap_domain_valid = is_domain_name($idmap_domain)
+  $is_idmap_domain_valid = is_domain_name("${idmap_domain}")
   if $is_idmap_domain_valid != true {
     fail("nfs::idmap::idmap_domain parameter, <${idmap_domain}>, is not a valid name.")
   }
 
-  $is_ldap_server_valid = is_domain_name($ldap_server)
+  $is_ldap_server_valid = is_domain_name("${ldap_server}")
   if $is_ldap_server_valid != true {
     fail("nfs::idmap::ldap_server parameter, <${ldap_server}>, is not a valid name.")
   }
